@@ -1,23 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
 }
-
 .container-all {
   display: flex;
-  flex-direction: row; // Organise les enfants de container-all horizontalement
-  height: 100vh; // Assurez-vous que le container prend toute la hauteur de la fenêtre
+  flex-direction: row; 
+  height: 100vh;
 
-  // Sélectionne le premier enfant de container-all et lui affecte une largeur de 60%
+
   > :first-child {
     width: 60%;
-    height: 100%; // Prend toute la hauteur du parent
+    // height: 100%; 
   }
 
-  // Sélectionne le deuxième enfant de container-all et lui affecte une largeur de 40%
+  
   > :nth-child(3) {
     width: 40%;
-    height: 100%; // Prend toute la hauteur du parent
+    // height: 100%;
   }
 }

@@ -3,20 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, StaticDatePicker } from '@mui/x-date-pickers';
 import { Paper } from '@mui/material';
-import { setCurrentDay } from '../../redux/actions.jsx'; // Assurez-vous d'avoir une action définie pour cela
-import '../CalendarView/CalendarView.scss';
+import { setCurrentDay } from '../../redux/actions.jsx'; 
+import '../CalendarView/CalendarView.css';
 
 const CalendarView = () => {
   const dispatch = useDispatch();
-  const selectedDay = useSelector(state => state.calendar.currentDay); // Assurez-vous que le reducer est configuré pour cela
+  const selectedDay = useSelector(state => state.calendar.currentDay); 
 
   const handleDayChange = (newDay) => {
-    // Dispatch the new day value to the Redux store
     dispatch(setCurrentDay(newDay));
   };
 
   return (
-    <Paper>
+    <Paper className='calendar-view'>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <StaticDatePicker
           displayStaticWrapperAs="desktop"
@@ -24,7 +23,6 @@ const CalendarView = () => {
           value={selectedDay}
           onChange={handleDayChange}
           renderInput={(params) => <div {...params} />}
-          // Ajoutez d'autres propriétés si nécessaire
         />
       </LocalizationProvider>
     </Paper>
