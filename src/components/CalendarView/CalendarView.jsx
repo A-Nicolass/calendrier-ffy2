@@ -4,6 +4,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, StaticDatePicker } from '@mui/x-date-pickers';
 import { Paper } from '@mui/material';
 import { setCurrentDay } from '../../redux/actions.jsx'; // Assurez-vous d'avoir une action définie pour cela
+import '../CalendarView/CalendarView.scss';
 
 const CalendarView = () => {
   const dispatch = useDispatch();

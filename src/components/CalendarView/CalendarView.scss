@@ -1,0 +1,28 @@
+.calendar-view {
+    .MuiPickersStaticWrapper-root {
+      background-color: #333; // Couleur de fond du calendrier
+      color: white; // Couleur du texte
+  
+      .MuiPickersDay-daySelected {
+        background-color: #2196f3; // Couleur du jour sélectionné
+        color: white;
+      }
+  
+      .MuiPickersArrowSwitcher-button { 
+        color: white; // Couleur des flèches et du mois/année
+      }
+  
+      .MuiButtonBase-root.MuiPickersDay-day { 
+        color: white; // Couleur des jours
+  
+        &:hover {
+          background-color: lighten(#2196f3, 20%); // Couleur de fond des jours au survol
+        }
+      }
+  
+      .MuiTypography-root {
+        color: white; // Couleur des en-têtes (noms des jours, etc.)
+      }
+    }
+  }
+  
