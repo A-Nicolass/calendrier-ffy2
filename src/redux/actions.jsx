@@ -15,8 +15,12 @@ export const setEndDate = (endDate) => ({
   payload: endDate,
 });
 
-// Ajout de l'action addEvent
 export const addEvent = (event) => ({
   type: 'ADD_EVENT',
   payload: event,
+});
+
+export const removeEvent = (eventId) => ({
+  type: 'REMOVE_EVENT',
+  payload: eventId,
 });

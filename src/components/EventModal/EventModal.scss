@@ -1,0 +1,51 @@
+/* EventModal.scss */
+
+.event-modal {
+  .event-title-input {
+    width: calc(100% - 50px); // Deduct the width of the color picker
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .event-modal-hr {
+    border-color: blue; // Use the current font color
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 60px); // Deduct the width of the color picker
+  }
+
+  .color-picker-preview {
+    width: 35px;
+    height: 35px;
+    background-color: blue; // Use the current font color
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px; // Space it out from the HR
+  }
+
+  .date-picker-button {
+    background-color: blue; // Use the current font color
+    color: #fff;
+    margin-top: 10px;
+    margin-right: 10px; // Space out buttons if they are inline
+  }
+
+  .event-comment-textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+  }
+
+  .event-add-button {
+    background-color: blue; // Use the current font color
+    color: #fff;
+    position: absolute;
+    right: 10px; // Position at the bottom right
+    bottom: 10px;
+  }
+}
+
+// You may need to ensure the 'blue' is set correctly when the color state changes

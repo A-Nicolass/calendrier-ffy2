@@ -5,7 +5,8 @@ import { Modal, Box, Button, TextareaAutosize } from '@mui/material';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import { setStartDate, setEndDate, addEvent } from '../../redux/actions'; 
+import { addEvent } from '../../redux/actions'; // Assurez-vous que ce chemin est correct
+// import './EventModal.scss';
 
 const EventModal = ({ isOpen, handleClose }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const EventModal = ({ isOpen, handleClose }) => {
   const [tempEndDate, setTempEndDate] = useState(new Date()); 
   const [showStartDatePicker, setShowStartDatePicker] = useState(false); 
   const [showEndDatePicker, setShowEndDatePicker] = useState(false); 
-  const [showColorPicker, setShowColorPicker] = useState(false); 
+  const [showColorPicker, setShowColorPicker] = useState(false); // Ensure this state is defined
   const [comment, setComment] = useState(''); 
 
   const handleChangeComplete = (color) => {
@@ -35,12 +36,10 @@ const EventModal = ({ isOpen, handleClose }) => {
   };
 
   const handleConfirmStartDate = () => {
-    dispatch(setStartDate(tempStartDate)); 
     setShowStartDatePicker(false); 
   };
 
   const handleConfirmEndDate = () => {
-    dispatch(setEndDate(tempEndDate)); 
     setShowEndDatePicker(false); 
   };
 
@@ -49,17 +48,17 @@ const EventModal = ({ isOpen, handleClose }) => {
   };
 
   const handleAddEvent = () => {
-    // Créer un objet événement
+    // Créer un objet événement avec un identifiant unique
     const event = {
+      id: Date.now(), // Utilisez Date.now() pour un ID unique ou uuid pour plus de robustesse
       title,
-      startDate: tempStartDate,
-      endDate: tempEndDate,
+      startDate: tempStartDate.toISOString(), // Enregistrez la date au format ISO pour éviter les problèmes de fuseau horaire
+      endDate: tempEndDate.toISOString(),
       color,
       comment
     };
-    
     dispatch(addEvent(event));
-    handleClose(); 
+    handleClose(); // Fermer la modal après l'ajout
   };
 
   const style = {

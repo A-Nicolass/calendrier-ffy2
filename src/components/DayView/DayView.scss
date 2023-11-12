@@ -1,41 +1,58 @@
-// DayView.scss
+// CalendarView.scss
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 .day-view-container {
   padding: 50px;
   font-family: 'Montserrat', sans-serif;
 
-  h1 {
-    margin-bottom: 40px;
-  }
-
   .day-view-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    margin-bottom: 40px;
 
-  .add-event-button {
-    border-radius: 50%;
-    min-width: 48px;
-    height: 48px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    h1 {
+      font-size: 2rem; // Ajustez la taille de la police selon vos préférences
+    }
+
+    .add-event-button {
+      border-radius: 50%;
+      min-width: 48px;
+      height: 48px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .event-item {
     margin: 20px 0;
-    padding: 20px 10px;
-    margin-top: 70px;
-   
+    padding: 10px 10px 10px 20px; // Augmente le padding gauche pour la ligne verticale
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     background-color: var(--event-bg-color);
-    color: black; 
+    color: black;
+
+    h2, h3 {
+      padding: 5px 0; // Augmenter le padding top et bottom
+    }
+
+    .delete-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      cursor: pointer;
+      opacity: 0; // Masquer initialement l'icône
+      transform: translateY(-50%); // Centrer verticalement
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover .delete-icon {
+      opacity: 1; // Afficher l'icône au survol
+    }
 
     &::before {
       content: '';
@@ -44,19 +61,7 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background-color: var(--event-border-color);
-    }
-
-
-
-    h2 {
-      padding: 10px 0; 
-      margin: 0; 
-    }
-
-    h3 {
-      padding: 10px 0; 
-      margin: 0;
+      background-color: var(--event-border-color); // Utiliser la couleur sans transparence pour la bordure
     }
   }
 }

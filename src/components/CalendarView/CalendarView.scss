@@ -1,0 +1,75 @@
+/* CalendarView.scss */
+
+.calendar-view {
+    width: 100%;
+    background-color: #5c5f6d;
+    color: #ffffff;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; // Apply Montserrat font
+    padding-top: 80px;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: center; // Center the month/year
+    align-items: center; // Center items vertically
+    font-size: 1.7em; // Larger font size for the month/year
+    position: relative; // Relative position for absolute child elements
+  }
+  
+  .calendar-header button {
+    background: url('/arrow-calendar.svg') no-repeat center;
+    background-size: contain; // Adjust if necessary
+    border: none;
+    width: 50px; // Increase the width for a larger button
+    height: 50px; // Increase the height for a larger button
+    cursor: pointer;
+    position: absolute; // Position the buttons absolutely within the header
+  
+    &:first-child {
+      transform: scaleX(-1);
+      left: 50px; // Increase the distance from the left edge
+    }
+  
+    &:last-child {
+      right: 50px; // Increase the distance from the right edge
+    }
+  
+    // Optional: hide the default button styling
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  .calendar-days-of-week {
+    margin-top: 80px;
+    display: flex;
+    color: #bebfc5;
+    justify-content: space-between; // Space out the day initials evenly
+    padding: 0 70px; // Add some vertical padding
+  }
+  
+  .calendar-days {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); // 7 days in a week
+    gap: 1em; // Adjust spacing as needed
+    padding: 0 13.5%;
+  
+    .day {
+      text-align: center;
+      padding: 0.5em 0;
+  
+      &.offset {
+        visibility: hidden; // Hides the offset days
+      }
+  
+      &.selected {
+        background-color: #3c82f9; // Highlight the selected day
+        color: #ffffff;
+        border-radius: 50%;
+      }
+    }
+  }
+  

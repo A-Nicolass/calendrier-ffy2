@@ -1,24 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
+/* App.scss */
+
 .container-all {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   height: 100vh;
 
-
   > :first-child {
-    width: 60%;
-    // height: 100%; 
+    flex: 0 0 70%; /* takes up 60% width, adjust if needed */
   }
 
-  
   > :nth-child(3) {
-    width: 40%;
-    // height: 100%;
+    flex: 0 0 30%; /* takes up 40% width */
+    height: 100%; /* ensures it takes full height of its container */
   }
+}
+
+/* Ensure that the body and html take up the full viewport height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-view {
+  // background-color: #5c5f6d !important;
+}
+
+.css-16b5y55-MuiPickersLayout-contentWrapper {
+  // background-color: #5c5f6d !important;
 }
