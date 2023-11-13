@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container-all {
@@ -17,29 +18,36 @@ html, body {
   }
 
   > :nth-child(3) {
-    flex: 0 0 30%; 
-    height: 100%; 
-    overflow-y: auto; 
+    flex: 0 0 30%;
+    height: 100%;
+    overflow-y: auto;
   }
-  
-  // Pour les tablettes
+
+  @media (max-width: 1500px) {
+    > :first-child {
+      flex: 0 0 60%;
+    }
+
+    > :nth-child(3) {
+      flex: 0 0 40%;
+    }
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
 
     > :first-child,
     > :nth-child(3) {
-      flex: 1; 
+      flex: 1;
     }
   }
 
-  // Pour les téléphones portables
   @media (max-width: 480px) {
     flex-direction: column;
 
     > :first-child,
     > :nth-child(3) {
-      flex: 1; 
+      flex: 1;
     }
   }
 }
-
