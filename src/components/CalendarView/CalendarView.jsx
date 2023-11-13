@@ -9,10 +9,8 @@ const CalendarView = () => {
   const [currentMonth, setCurrentMonth] = useState(selectedDay.getMonth());
   const [currentYear, setCurrentYear] = useState(selectedDay.getFullYear());
 
-  // Adjusting daysOfWeek to start from Sunday if needed
   const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
-  // Helper functions
   const getDaysInMonth = (month, year) => {
     return new Date(year, month + 1, 0).getDate();
   };
@@ -21,12 +19,10 @@ const CalendarView = () => {
     return new Date(year, month, 1).getDay();
   };
 
-  // Adjust the day when a date is clicked
   const handleDayClick = (day) => {
     dispatch(setCurrentDay(new Date(currentYear, currentMonth, day)));
   };
 
-  // Change the month
   const changeMonth = (num) => {
     let newMonth = currentMonth + num;
     let newYear = currentYear;
@@ -43,7 +39,6 @@ const CalendarView = () => {
     setCurrentYear(newYear);
   };
 
-  // Render header
   const renderHeader = () => {
     const monthAndYear = new Date(currentYear, currentMonth).toLocaleString('default', {
       month: 'long',
@@ -51,14 +46,13 @@ const CalendarView = () => {
     });
     return (
       <div className="calendar-header">
-        <button onClick={() => changeMonth(-1)}>&lt;</button>
+        <button onClick={() => changeMonth(-1)}></button>
         <span>{monthAndYear}</span>
-        <button onClick={() => changeMonth(1)}>&gt;</button>
+        <button onClick={() => changeMonth(1)}></button>
       </div>
     );
   };
 
-  // Render days of the week
   const renderDaysOfWeek = () => (
     <div className="calendar-days-of-week">
       {daysOfWeek.map((day, index) => (
@@ -69,15 +63,12 @@ const CalendarView = () => {
     </div>
   );
 
-  // Render days in the month
   const renderDays = () => {
     const daysInMonth = getDaysInMonth(currentMonth, currentYear);
     const firstDayOfMonth = getFirstDayOfMonth(currentMonth, currentYear);
 
-    // Create placeholders for the days before the first day of the month
     const offsetDays = Array.from({ length: firstDayOfMonth }, () => null);
 
-    // Combine the offset days with the current month's days
     const days = [...offsetDays, ...Array.from({ length: daysInMonth }, (_, i) => i + 1)];
 
     return (
